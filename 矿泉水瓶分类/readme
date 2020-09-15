@@ -1,0 +1,13 @@
+项目简介：
+本项目是对100张左右的矿泉水瓶图片进行分类，类别包括：百岁山，怡宝，百事可乐，景甜，哇哈哈，康师傅，农夫山泉，天府可乐，可口可乐，恒大冰泉，苏打水，冰露以及其他。
+model使用了resnet18
+loss使用了CrossEntropyLoss和DiceLoss()
+过程：
+1、将图片缩小到224*224，设置batch-size为2，lr为0.001，训练了10个epoch,发现loss为1.2，train-acc只有0.47，效果并不好。猜测可能是将图片过度缩小导致不能很好的提取图片特征。
+2、将图片尺寸改为448*448，其余设置一样，训练10个epoch，发现loss为2.3，train-acc为0.45，效果并没有改善。考虑可能训练的不够，再增大epoch。
+3、分别训练图片尺寸为224*224、448*448和1024*1024的图片，lr改为0.0001，训练30个epoch，此时loss分别为0.006，0.013，0.0068，train-acc分别为0.63，0.74，0.67，图片尺寸的适当增大使训练
+结果有了很明显的提升，而过大的图片尺寸却是没有必要的，既不能使训练结果有很大的提升又耗时间。
+4、考虑到batch-size为2，过于小了，可能使batch normalization没有效果，所以增大batch-size到20，训练10个epoch，loss为0.25，较之前loss下降的非常快，但是train-acc一直为0.2428不改变，找不到问题所在。
+5、考虑换一种方法，将batch normalization改为group normalization，训练10个epoch时，loss为0.8668，train-acc为0.91，test-acc为0.66，训练20个epoch时，loss为0.277，train-acc为0.91，test-acc为1。
+最终选择了此方法。
+![image](http://github.com/yuzhangzhang/Deep-learning-computer-vision/矿泉水瓶分类/raw/master/屏幕截图 2020-09-15 175739.png)
