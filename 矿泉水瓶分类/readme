@@ -1,5 +1,6 @@
 项目简介：
 本项目是对100张左右的矿泉水瓶图片进行分类，类别包括：百岁山，怡宝，百事可乐，景甜，哇哈哈，康师傅，农夫山泉，天府可乐，可口可乐，恒大冰泉，苏打水，冰露以及其他。
+！[image](https://github.com/yuzhangzhang/Deep-learning-computer-vision/blob/master/%E7%9F%BF%E6%B3%89%E6%B0%B4%E7%93%B6%E5%88%86%E7%B1%BB/bottle.png)
 model使用了resnet18
 loss使用了CrossEntropyLoss和DiceLoss()
 过程：
