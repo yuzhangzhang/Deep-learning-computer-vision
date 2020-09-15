@@ -10,4 +10,4 @@ loss使用了CrossEntropyLoss和DiceLoss()
 4、考虑到batch-size为2，过于小了，可能使batch normalization没有效果，所以增大batch-size到20，训练10个epoch，loss为0.25，较之前loss下降的非常快，但是train-acc一直为0.2428不改变，找不到问题所在。
 5、考虑换一种方法，将batch normalization改为group normalization，训练10个epoch时，loss为0.8668，train-acc为0.91，test-acc为0.66，训练20个epoch时，loss为0.277，train-acc为0.91，test-acc为1。
 最终选择了此方法。
-！[image]（http://github.com/yuzhangzhang/Deep-learning-computer-vision/矿泉水瓶分类/train.png)
+！[image]（http://github.com/yuzhangzhang/Deep-learning-computer-vision/矿泉水瓶分类/raw/master/train.png)
