@@ -1,1 +1,12 @@
-
+项目简介：
+本项目是对137张矿泉水瓶图片进行检测，类别包括：百岁山，怡宝，百事可乐，景甜，哇哈哈，康师傅，农夫山泉，天府可乐，可口可乐，恒大冰泉，苏打水，冰露以及其他。
+！[image]（https://github.com/yuzhangzhang/Deep-learning-computer-vision/blob/master/%E7%9F%BF%E6%B3%89%E6%B0%B4%E7%93%B6%E6%A3%80%E6%B5%8B/BOTTLES.png）
+model使用了resnet50+yolov1
+过程：
+1，将图片缩小到448 * 448，设置batch_size为2，lr为0.0001，训练了30个epoch，发现loss为0.08，测试集上loss会很大，大概2.3~4.5左右。
+2、考虑可能是过拟合，所以加入了label——smoothing，同时用grid_mask进行了数据增广，其余设置一样，训练30个epoch，发现loss降到0.07左右会再次升到0.9或1.1。
+3、由于loss的波动，对lr进行调整，8epoch前0.001，8-11epoch设为0.0001，11epoch后0.00001，训练50个epoch，loss还是没有明显的下降，测试集上loss大概0.5~2.3左右。
+4、最终不知如何改进。
+！[image]（https://github.com/yuzhangzhang/Deep-learning-computer-vision/blob/master/%E7%9F%BF%E6%B3%89%E6%B0%B4%E7%93%B6%E6%A3%80%E6%B5%8B/OUTPUT.png）
+！[image]（https://github.com/yuzhangzhang/Deep-learning-computer-vision/blob/master/%E7%9F%BF%E6%B3%89%E6%B0%B4%E7%93%B6%E6%A3%80%E6%B5%8B/LOSS_RESULT.png）
+！[image]（https://github.com/yuzhangzhang/Deep-learning-computer-vision/blob/master/%E7%9F%BF%E6%B3%89%E6%B0%B4%E7%93%B6%E6%A3%80%E6%B5%8B/TEST_RESULT.png）
