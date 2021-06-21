@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-# @Author  : Youquan Liu
-# @FileName: detection_classification.py
-# @Software: PyCharm
-# @Description: This Code achieves traffic sign detection and classification
+
 
 # Import required libraries
 import cv2
