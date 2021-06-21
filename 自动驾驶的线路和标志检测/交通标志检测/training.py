@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-# @Author  : Youquan Liu
-# @FileName: training.py
-# @Software: PyCharm
-# @Description: This Code is for training LeNet5 model on GTSRB dataset by using GPU/CPU
+
 
 
 
